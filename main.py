@@ -96,7 +96,6 @@ def saving_model(accuracy, net, path, use_cuda=True, epoch=0, dataset="public"):
         'acc': accuracy,
         'epoch': epoch,
     }
-    
     torch.save(state, os.path.join(path, f'{dataset}_model.t7'))
 
 
@@ -137,7 +136,6 @@ def main(args):
                 dataset="public"
             )
             
-        
         private_acc =  eval(net, privateloader, use_cuda=use_cuda, criterion=criterion)
         if private_acc > best_private_acc:
             best_private_acc = private_acc
