@@ -116,7 +116,7 @@ def define_activations():
 
 
 def write_accuracy(message):
-    with open("acuraccy.txt", "wa") as f:
+    with open("acuraccy.txt", "a") as f:
         f.write(message)
     
 
