@@ -60,7 +60,7 @@ def read_split(data_path=""):
             img_data = [int(i) for i in row[1].split()]
             image_data[data_set].append(img_data)
             targets[data_set].append(int(row[0]))
-            if idx > 100: break
+            #if idx > 100: break
 
     transform_train = transforms.Compose([
         transforms.ToTensor(),
@@ -76,7 +76,7 @@ def read_split(data_path=""):
     
     streams = []
     tfs = [transform_train, transform_test, transform_test]
-    for i, dataset in enumerate(["Training", "Training", "Training"]):
+    for i, dataset in enumerate(["Training", "PublicTest", "PrivateTest"]):
         streams.append(FER2013(image_data[dataset], targets[dataset], tfs[i]))
 
     return streams

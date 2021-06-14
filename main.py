@@ -112,7 +112,7 @@ def define_activations():
     activations.append(Activation(AconC, True))
     activations.append(Activation(FReLU, True))
     activations.append(Activation(MetaAconC, True))
-    return activations
+    return [a for a in activations for _ in range(3)]
 
 
 def write_accuracy(message):
