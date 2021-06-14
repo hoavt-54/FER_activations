@@ -87,10 +87,10 @@ def eval(net, test_loader, use_cuda=True, criterion=None):
 
 
 def saving_model(accuracy, net, path, use_cuda=True, epoch=0, dataset="public"):
-    print("saving\n")
+    print("saving")
     path = Path(path)
     path.mkdir(parents=True, exist_ok=True)
-    print(f"best_{dataset}_acc: {accuracy}\n")
+    print(f"best_{dataset}_acc: {accuracy}")
     state = {
         'net': net.state_dict() if use_cuda else net,
         'acc': accuracy,
@@ -120,7 +120,7 @@ def main(args):
     saving_path = os.path.join("saved_models", args.model)
 
     for epoch in range(args.epoch):
-        print(f"\nEpoch: {epoch}\n")
+        print(f"\nEpoch: {epoch}")
         train(
             net,
             trainloader,
