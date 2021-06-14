@@ -36,20 +36,9 @@ class VGG(nn.Module):
                 layers += [nn.MaxPool2d(kernel_size=2, stride=2)]
             else:
                 layers += [nn.Conv2d(in_channels, x, kernel_size=3, padding=1),
-                           nn.BatchNorm2d(x),
-                           nn.ReLU(),
-                           # self.act
-                            # nn.Identity()
-                            # nn.Tanh()
-                            # nn.Sigmoid()
-                            # nn.LeakyReLU(0.1)
-                            # nn.Hardswish()
-                            # nn.SiLU()
-                            # Mish()
-                            #AconC(x)
-                            # MetaAconC()
-                            # SiLU_beta()
-                            # MetaAconC(x)
+                                nn.BatchNorm2d(x),
+                                #nn.ReLU(),
+                                self.act.func(x) if self.act.require_param else self.act.func
                            ]
                 in_channels = x
         layers += [nn.AvgPool2d(kernel_size=1, stride=1)]
