@@ -19,7 +19,7 @@ from torch.utils.data import DataLoader
 import utils
 import data_utils
 from models import VGG
-from activations import AconC, MetaAconC, FReLU, 
+from activations import AconC, MetaAconC, FReLU
 
 
 def train(net, train_loader, lr =0.01, epoch=0,
