@@ -83,7 +83,7 @@ def eval(net, test_loader, use_cuda=True, criterion=None):
         utils.progress_bar(batch_idx, len(test_loader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
                            % (loss / (batch_idx + 1), 100. * correct / total, correct, total))
     
-        return 100. * correct / total
+    return 100. * correct / total
 
 
 def saving_model(accuracy, net, path, use_cuda=True, epoch=0, dataset="public"):
@@ -111,6 +111,8 @@ def main(args):
         net = ResNet18()
 
     use_cuda = torch.cuda.is_available()
+    if use_cuda:
+        net.cuda()
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=0.9)
 
@@ -118,7 +120,7 @@ def main(args):
     saving_path = os.path.join("saved_models", args.model)
 
     for epoch in range(args.epoch):
-        print(f"Epoch: {epoch}\n")
+        print(f"\nEpoch: {epoch}\n")
         train(
             net,
             trainloader,
