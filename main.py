@@ -36,7 +36,7 @@ def train(net, train_loader, lr =0.01, epoch=0,
         utils.set_lr(optimizer, current_lr)  # set the decayed rate
     else:
         current_lr = lr
-    print('learning_rate: %.4f' % str(current_lr))
+    print('learning_rate: %.4f' % current_lr)
 
     for batch_idx, (inputs, targets) in enumerate(train_loader):
         if use_cuda:
