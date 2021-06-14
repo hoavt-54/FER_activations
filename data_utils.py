@@ -75,8 +75,8 @@ def read_split(data_path=""):
     ])
     
     streams = []
-    tfs = [transform_train, transform_train, transform_train]
-    for i, dataset in enumerate(["Training", "PublicTest", "PrivateTest"]):
+    tfs = [transform_train, transform_test, transform_test]
+    for i, dataset in enumerate(["Training", "Training", "Training"]):
         streams.append(FER2013(image_data[dataset], targets[dataset], tfs[i]))
 
     return streams

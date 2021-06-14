@@ -181,7 +181,7 @@ if __name__ == "__main__":
     parser.add_argument('--model', type=str, default='VGG19', help='CNN architecture')
     parser.add_argument('--dataset', type=str, default='FER2013', help='CNN architecture')
     parser.add_argument('--bs', default=20, type=int, help='learning rate')
-    parser.add_argument('--epoch', default=160, type=int, help='number of epoches')
+    parser.add_argument('--epoch', default=180, type=int, help='number of epoches')
     parser.add_argument('--lr', default=0.01, type=float, help='learning rate')
     parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
     args = parser.parse_args()
