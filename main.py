@@ -116,7 +116,7 @@ def define_activations():
 
 
 def write_accuracy(message):
-    with open("acuraccy.txt", "a") as f:
+    with open("accuracy.txt", "a") as f:
         f.write(message)
     
 
@@ -170,9 +170,9 @@ def main(args):
                     use_cuda=use_cuda, epoch=epoch,
                     dataset="private"
                 )
-        message = "%s activation %s best public_test %.3f" % (timestamp, act, best_public_acc)
+        message = "%s activation %s best public_test %.3f\n" % (timestamp, act, best_public_acc)
         write_accuracy(message)
-        message = "%s activation %s best private_test %.3f" % (timestamp, act, best_private_acc)
+        message = "%s activation %s best private_test %.3f\n" % (timestamp, act, best_private_acc)
         write_accuracy(message)
     
 
